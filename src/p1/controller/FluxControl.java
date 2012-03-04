@@ -24,8 +24,16 @@ public class FluxControl {
 	while(!answerType.equalsIgnoreCase("exit")){
 	    answerType = lineCapturer.insertCommand();
 	    
-	    if(answerType.equalsIgnoreCase("get"))
+	    if(answerType.equalsIgnoreCase("get")){
 		appEngine.processingGet(answerType);
+		
+		appOutputObj.getProcessed();
+	    }
+	    else if(answerType.equalsIgnoreCase("search")){
+		appEngine.processingSearch(answerType);
+		
+		appOutputObj.searchProcessed();
+	    }
 	}
 	
 	System.exit(0);
